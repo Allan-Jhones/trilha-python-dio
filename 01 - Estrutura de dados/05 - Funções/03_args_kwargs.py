@@ -1,3 +1,5 @@
+#Podemos combinar parâmetros obrigatórios com args e kwargs. Quando esses são definidos
+#(*args e *kwargs), o método recebe os valores como tupla e dicionário respectivamente.
 def exibir_poema(data_extenso, *args, **kwargs):
     texto = "\n".join(args)
     meta_dados = "\n".join([f"{chave.title()}: {valor}" for chave, valor in kwargs.items()])
@@ -6,6 +8,7 @@ def exibir_poema(data_extenso, *args, **kwargs):
 
 
 exibir_poema(
+    "03 de Novembro de 2025",
     "Zen of Python",
     "Beautiful is better than ugly.",
     "Explicit is better than implicit.",

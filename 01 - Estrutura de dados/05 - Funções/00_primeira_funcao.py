@@ -1,3 +1,6 @@
+#Para retornar um valor, utilizamos a palavra return.
+#Toda função Python retorna None por padrão. Diferente de outras linguagens
+#de programação, em python uma função pode retornar mais de um valor.
 def exibir_mensagem():
     print("Olá mundo!")
 
