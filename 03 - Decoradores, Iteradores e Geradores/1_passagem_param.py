@@ -14,4 +14,4 @@ def executar(funcao, nome):
 
 
 print(executar(mensagem, "Joao"))
-print(executar(mensagem_longa, "Joao"))
+#print(executar(mensagem_longa, "Joao"))

@@ -5,3 +5,11 @@ def meu_gerador(numeros: list[int]):
 
 for i in meu_gerador(numeros=[1, 2, 3]):
     print(i)
+
+
+def meu_gerador():
+    texto = "python"
+    yield texto
+
+for i in meu_gerador():
+    print(i)
