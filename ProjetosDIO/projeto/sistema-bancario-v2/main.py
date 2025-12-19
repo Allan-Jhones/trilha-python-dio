@@ -1,8 +1,28 @@
 import textwrap
-from abc import ABC, abstractmethod, abstractproperty
+from abc import ABC, abstractmethod, abstractproperty, abstractclassmethod
+from datetime import datetime
+
 
 class Historico:
-    pass
+    def __init__(self):
+        self.transacoes = []
+    def transacoes(self):
+        return self.transacoes
+    def adicionar_transacao(self, transacao):
+        self.transacoes.append({
+            "tipo": transacao.__class__.__name__,
+            "valor": transacao.valor,
+            "data": datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        })
+class Transacao(ABC):
+    @property
+    @abstractmethod
+    def valor(self):
+        pass
+    @classmethod
+    def registrar(self, conta):
+        pass
+
 
 class Conta:
 
@@ -74,12 +94,32 @@ class ContaCorrente(Conta):
     def __init__(self, numero, cliente, limite=500, limite_saque=3):
         super.__init__(numero, cliente)
         self.limite = limite
+        self.limite_saque = limite_saque
+
+    def sacar(self, valor):
+        numero_saques = len([transacao for transacao in self.historico.transacoes if transacao["tipo"] == Saque.__name__])
+        excedeu_limite = valor > self.limite
+        excedeu_saques = numero_saques >= self.limite_saque
+        if excedeu_limite:
+            print("O valor do saque excede o limite!")
+        elif excedeu_saques:
+            print("Número máximo de saques excedido!")
+        else:
+            return super().sacar(valor)
+
+        def __str__(self):
+            return f"""\
+            Agência:\t{self.agencia}
+            C/C:\t{self.numero}
+            Titular:\t{self.cliente.nome}
+            """
 
 class Transacao(ABC):
     pass
 
 class Saque(Transacao):
-    pass
+    def __init__(self, valor):
+        self.valor = valor
 
 class Deposito(Transacao):
     pass
