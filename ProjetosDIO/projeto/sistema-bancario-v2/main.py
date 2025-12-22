@@ -115,14 +115,37 @@ class ContaCorrente(Conta):
             """
 
 class Transacao(ABC):
-    pass
+    @property
+    @abstractmethod
+    def valor(self):
+        pass
+    @abstractmethod
+    def registrar(self, conta):
+        pass
+
 
 class Saque(Transacao):
     def __init__(self, valor):
         self.valor = valor
 
+    @property
+    def valor(self):
+        return self._valor
+    def registrar(self, conta):
+        sucesso_transacao = conta.sacar(self.valor)
+        if sucesso_transacao:
+            conta.historico.adicionar_transacao(conta)
+
 class Deposito(Transacao):
-    pass
+    def __init__(self, valor):
+        self.valor = valor
+    @property
+    def valor(self):
+        return self._valor
+    def registrar(self, conta):
+        sucesso_transacao = conta.depositar(self.valor)
+        if sucesso_transacao:
+            conta.historico.adicionar_transacao(self)
 
 class Cliente:
     def __init__(self, endereco):
@@ -164,12 +187,13 @@ def menu():
     => """
     return input(textwrap.dedent(menu))
 
-def get_extrato(saldo, /, *, extrato):
-    print("\n================ EXTRATO ================")
-    print("Não foram realizadas movimentações." if not extrato else extrato)
-    print(f"\nSaldo: R$ {saldo:.2f}")
-    print("==========================================")
-
+def exibir_extrato(clientes):
+    cpf = input("Digite o CPF do cliente: ")
+    #cliente = filter(lambda cliente: cliente.cpf == cpf, clientes)
+    cliente = filtrar_usuario(cpf, clientes)
+    if not cliente:
+        print("Nenhum cliente foi encontrado!")
+        #01:42
 def set_deposito(valor, saldo, /):
     saldo += valor
     return saldo
@@ -177,39 +201,36 @@ def set_deposito(valor, saldo, /):
 def add_mensagem_extrato (extrato, /, valor, mensagem):
     extrato += f"{mensagem} {valor:.2f}\n"
     return extrato
+def recuperar_conta_cliente(cliente):
+    if not cliente.contas:
+        print ("Cliente não possui conta!")
+        return
+    return cliente.contas[0]
+def depositar(clientes):
+    cpf = input("Digite o CPF do cliente: ")
+    cliente = filtrar_usuario(cpf, clientes)
+    if not cliente:
+        print("Nenhum cliente foi encontrado.")
+        return
+    valor = float(input("Digite o valor do depósito: R$ "))
+    transacao = Deposito(valor)
+    conta = recuperar_conta_cliente(cliente)
+    if not conta:
+        return
+    cliente.realizar_transacao(conta, transacao)
 
-def depositar(saldo, extrato, /):
-    valor = float(input("Informe o valor do depósito: "))
-    if valor > 0:
-        saldo = set_deposito(valor, saldo)
-        extrato = add_mensagem_extrato(extrato, valor, "Deposito : R$")
-        return saldo, extrato
-    else:
-        print("Operação falhou! O valor informado é inválido.")
-
-    return saldo, extrato
-
-
-def sacar(*, saldo, extrato, limite, numero_saques, limite_saques):
-    valor = float(input("Informe o valor do saque: "))
-    excedeu_saldo = valor > saldo
-    excedeu_limte = valor > limite
-    excedeu_saques = numero_saques >= limite_saques
-
-    if excedeu_saldo:
-        print ("Operação falhou! Você não tem saldo suficiente!")
-    elif excedeu_limte:
-        print ("Operação falhou! O valor do saque excede o limite!")
-    elif excedeu_saques:
-        print ("Operação falhou! Número máximo de saques excedido!")
-    elif valor > 0:
-        saldo -= valor
-        extrato = add_mensagem_extrato(extrato, valor, "Saque: R$ " )
-        print ("Saque realizado com sucesso!")
-    else:
-        print ("Operação falhou! O valor informado é inválido!")
-    return saldo, extrato
-
+def sacar(clientes):
+    cpf = input("Digite o CPF do cliente: ")
+    cliente = filtrar_usuario(cpf, clientes)
+    if not cliente:
+        print("Nenhum cliente foi encontrado.")
+        return
+    valor = float(input("Digite o valor do saque: R$ "))
+    transacao = Saque(valor)
+    conta = recuperar_conta_cliente(cliente)
+    if not conta:
+        return
+    cliente.realizar_transacao(conta, transacao)
 
 def criar_usuario(usuarios):
     cpf = str(input("Digite seu CPF: "))
@@ -226,7 +247,7 @@ def criar_usuario(usuarios):
     print("Usuario criado com sucesso!")
 
 def filtrar_usuario(cpf, usuarios):
-    usuarios_filtrados = [usuario for usuario in usuarios if usuario["cpf"] == cpf]
+    usuarios_filtrados = [usuario for usuario in usuarios if usuario.cpf == cpf]
     return usuarios_filtrados[0] if usuarios_filtrados else None
 
 def criar_conta(agencia, numero_conta, usuarios):
@@ -248,50 +269,26 @@ def listar_contas(contas):
         print ("="*30)
         print (textwrap.dedent(linha))
 def main ():
-    AGENCIA = "0001"
-    saldo = 0
-    limite = 500
-    extrato = ""
-    numero_saques = 0
-    LIMITE_SAQUES = 3
+    clientes = []
     contas = []
-    listaUsuarios = []
-
     while True:
         opcao = menu()
         if opcao == "d":
-            saldo, extrato = depositar(saldo, extrato)
+            depositar(clientes)
         elif opcao == "s":
-            aux_saldo = saldo
-            saldo, extrato = sacar(
-                saldo=saldo,
-                extrato=extrato,
-                limite=limite,
-                numero_saques=numero_saques,
-                limite_saques = LIMITE_SAQUES
-            )
-            if aux_saldo != saldo:
-                numero_saques += 1
-
+            sacar(clientes)
         elif opcao == "e":
-            get_extrato(saldo, extrato=extrato)
-
+            exibir_extrato(clientes)
         elif opcao == "nu":
-            criar_usuario(listaUsuarios)
-
+            criar_usuario(clientes)
         elif opcao == "nc":
-          numero_conta = len(contas) + 1
-          conta = criar_conta(AGENCIA, numero_conta, listaUsuarios)
-
-          if conta:
-              contas.append(conta)
+            numero_conta = len(contas) + 1
+            criar_conta(numero_conta, clientes, contas)
         elif opcao == "lc":
             listar_contas(contas)
         elif opcao == "q":
             break
-
         else:
             print("Operação inválida, por favor selecione novamente a operação desejada.")
-
 
 main()
