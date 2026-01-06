@@ -5,8 +5,68 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d8629a4-fbfc-4fc1-b6e4-adb90fb6fd6e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/alembic.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/migrations/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/migrations/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/migrations/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/migrations/versions/09f7da264602_add_initial_tables.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/poetry.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/pyproject.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/controllers/account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/controllers/auth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/controllers/transaction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/models/account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/models/transaction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/schemas/account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/schemas/auth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/schemas/transaction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/security.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/services/account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/services/transaction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/views/account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/views/auth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/desafio/src/views/transaction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/alembic.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/migrations/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/migrations/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/migrations/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/migrations/versions/bb8893ff2f00_add_initial_tables.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/poetry.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/pyproject.toml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/render-deploy.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/controllers/auth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/controllers/post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/models/post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/schemas/auth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/schemas/post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/security.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/services/post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/views/auth.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/src/views/post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/tests/conftest.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/tests/integration/controllers/auth/test_login.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/tests/integration/controllers/post/test_create_post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/tests/integration/controllers/post/test_delete_post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/tests/integration/controllers/post/test_read_all.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/tests/integration/controllers/post/test_read_post.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../13 - APIs Assíncronas com FastAPI/dio-blog/tests/integration/controllers/post/test_update_post.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
